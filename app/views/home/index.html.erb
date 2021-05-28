@@ -1,0 +1,28 @@
+<% if current_user %>
+<h1>Welcome,<%= current_user.first_name %></h1>
+<%= link_to"Sign Out",destroy_user_session_path, method: :delete %>
+<br>
+<%= link_to('ADD THE POST', {:action => 'post' ,:controller => 'posts'}) %>
+
+<br>
+<%= link_to('delete THE POST', {:action => 'delete' ,:controller => 'posts'}) %>
+  <br>
+  <table>
+<% @post.each do |post| %>
+  <tr>
+    <td><%= post.name%></td>
+    <td><%=post.content %></td><td>
+    	<%= link_to('EDIT THE POST', {:action => 'edit' ,:controller => 'posts'}) %>
+<br>
+    
+  </tr>
+  <% end %>
+  </table>
+
+
+	</br>
+<% else %>
+<h1>FIrst please Sign in</h1>
+<%= link_to"Sign Up" ,new_user_registration_path %>
+<%= link_to"Sign in" ,new_user_session_path %>
+<% end %>

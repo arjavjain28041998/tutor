@@ -1,0 +1,14 @@
+<h1>This is Post added form</h1>
+<form action="/added" name="post">
+	<label>Enter the Post Name</label>
+	<input type="text" name="name">
+	<br>
+	<label>Enter the Content</label>
+	<input type="text" name="content">
+
+	<br>
+
+	<input type="hidden" name="user_id" value="<%= current_user.id %>">
+	
+	<button type='submit' class="submit">Save</button>
+</form>
